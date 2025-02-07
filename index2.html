@@ -80,6 +80,7 @@
         Let me touch them forever <br><br>
         <div class="button-container" id="buttons">
           I have a very important question for you... <br><br>
+          <img src="Resources\dog.gif"><br>
           Will you be my Valentine's? <br>
           <button id="yesBtn" onclick="showSurprise()">Yes</button>
           <!-- Note: Changed onclick from switchToYes() to handleNoClick() -->
@@ -100,9 +101,9 @@
           // so the first click will change it to "Are you sure?".
           const noMessages = [
             "Are you sure?",
-            "Really, are you sure?",
-            "Come on, are you sure?",
-            "Yes"
+            "Don't be a meanie, are you sure?",
+            "Look at this doggie, do you want to make him sad?",
+            "OMG YES YAYYYYY"
           ];
           let noClickCount = 0;
           
@@ -118,7 +119,7 @@
               noBtn.textContent = noMessages[noClickCount];
               noBtn.style.backgroundColor = '#4CAF50'; // Change to green
               // After a short delay, trigger the same action as clicking the Yes button.
-              setTimeout(showSurprise, 500);
+              setTimeout(showSurprise, 1000);
             }
           }
           
