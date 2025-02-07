@@ -1,159 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's</title>
-    <style>
-            
-        body{ 
-            background: url('Resources/background.jpg'),no-repeat,fixed;
-            background-size: cover;
-            /* background-size: 100vw, 100vh;
-            background-repeat: no-repeat; */
-        }
-        
-        .superSeriousFont {
-                text-align: center;
-                font-family: "Brush Script MT", cursive;
-                font-weight: normal;
-                font-size: 64px;
-                text-shadow: 1000px;
-                color:cornsilk;
-            }
-        .imgTopHeader {   
-            width:100px;
-            height:100px;
-            align-content: center;
-        }
-        #content{
-            display:flex;
-            align-content:flex-start;
-            margin-left: 20px;
-        }
-        .button-container {
-            text-align: center;
-        }
-        button {
-            padding: 15px 30px;
-            margin: 10px;
-            font-size: 20px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            transition: transform 0.3s;
-        }
-
-        #yesBtn {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        #noBtn {
-            background-color: #f44336;
-            color: white;
-        }
-
-        button:hover {
-            transform: scale(1.1);
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        #surprise {
-            text-align: center;
-            opacity: 0;
-            animation: fadeIn 1s forwards;
-        }
-
-        #surprise img {
-            max-width: 300px;
-            margin: 20px;
-            border-radius: 10px;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's</title>
+  <style>
+    body {
+      /* Note: Removed commas between values */
+      background: url('Resources/new_background.jpg') no-repeat fixed;
+      background-size: cover;
+    }
+    .superSeriousFont {
+      text-align: center;
+      font-family: "Brush Script MT", cursive;
+      font-weight: normal;
+      font-size: 64px;
+      text-shadow: 1000px;
+      color: #cc313d;
+    }
+    .imgTopHeader {   
+      width: 100px;
+      height: 100px;
+      align-content: center;
+    }
+    #content {
+      display: flex;
+      align-content: flex-start;
+      margin-left: 20px;
+    }
+    .button-container {
+      text-align: center;
+    }
+    button {
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      transition: transform 0.3s;
+    }
+    #yesBtn {
+      background-color: #4CAF50;
+      color: white;
+    }
+    #noBtn {
+      background-color: #f44336;
+      color: white;
+    }
+    button:hover {
+      transform: scale(1.1);
+    }
+    .hidden {
+      display: none !important;
+    }
+    #surprise {
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+    #surprise img {
+      max-width: 300px;
+      margin: 20px;
+      border-radius: 10px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
 </head>
 <body>
-    <div class="superSeriousFont">
-        <div id="content">
-            <div id="main-section">
-                Roses are red, <br>
-                Foxes are clever, <br>
-                I like your boobs, <br>
-                Let me touch them forever <br> <br>
-                <div class="button-container" id="buttons">
-                    I have a very important question for you... <br> <br>
-                    Will you be my Valentine's? <br>
-
-                    <button id="yesBtn" onclick="showSurprise()">Yes</button>
-                    <button id="noBtn" onclick="switchToYes()">No</button>
-                </div>
-            
-                <div id="surprise" class="hidden">
-                    <h1>hehe yayyyy!</h1>
-                    here are flowers since i cant give them to you<br>
-                    (your present is the anne frank tickets &hearts;)<br>
-                    <img src="Resources\photo_2025-02-07_20-29-38.jpg" alt="Roses">
-                    <p>I love you tooo muah ❤️</p>
-                </div>
-            
-                <script>
-                    function switchToYes() {
-                // Temporarily change the "No" button to "Yes"
-                const noBtn = document.getElementById('noBtn');
-                noBtn.textContent = 'Yes';
-                noBtn.style.backgroundColor = '#4CAF50'; // Change to green
-                noBtn.disabled = true; // Disable the button to prevent multiple clicks
-
-                // Wait for a moment before showing the surprise
-                setTimeout(() => {
-                    showSurprise();
-                }, 1000); // 1 second delay
-            }
-                    function showSurprise() {
-                        // Hide buttons
-                        document.getElementById('buttons').classList.add('hidden');
-                        
-                        // Show surprise content
-                        const surprise = document.getElementById('surprise');
-                        surprise.classList.remove('hidden');
-                        
-                        // Optional: Add confetti effect
-                        for(let i = 0; i < 50; i++) {
-                            const confetti = document.createElement('div');
-                            confetti.style.position = 'absolute';
-                            confetti.style.width = '10px';
-                            confetti.style.height = '10px';
-                            confetti.style.backgroundColor = `hsl(${Math.random() * 360}deg, 100%, 50%)`;
-                            confetti.style.left = Math.random() * 100 + 'vw';
-                            confetti.style.top = '-10px';
-                            confetti.style.borderRadius = '50%';
-                            confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear`;
-                            document.body.appendChild(confetti);
-                        }
-                    }
-            
-                    // Add CSS for confetti animation
-                    const style = document.createElement('style');
-                    style.textContent = `
-                        @keyframes fall {
-                            to {
-                                transform: translateY(100vh) rotate(360deg);
-                                opacity: 0;
-                            }
-                        }
-                    `;
-                    document.head.appendChild(style);
-                </script>
-            </div>
+  <div class="superSeriousFont">
+    <div id="content">
+      <div id="main-section">
+        Roses are red, <br>
+        Foxes are clever, <br>
+        I like your boobs, <br>
+        Let me touch them forever <br><br>
+        <div class="button-container" id="buttons">
+          I have a very important question for you... <br><br>
+          <img src="Resources\dog.gif"><br>
+          Will you be my Valentine's? <br>
+          <button id="yesBtn" onclick="showSurprise()">Yes</button>
+          <!-- Note: Changed onclick from switchToYes() to handleNoClick() -->
+          <button id="noBtn" onclick="handleNoClick()">No</button>
         </div>
+    
+        <div id="surprise" class="hidden">
+          <h1>hehe yayyyy!</h1>
+          here are flowers since i cant give them to you<br>
+          (your present is the anne frank tickets &hearts;)<br>
+          <img src="Resources/photo_2025-02-07_20-29-38.jpg" alt="Roses">
+          <p>I love you tooo muah ❤️</p>
+        </div>
+    
+        <script>
+          // Define the consecutive messages for the "No" button.
+          // The initial button text is "No" (as set in the HTML),
+          // so the first click will change it to "Are you sure?".
+          const noMessages = [
+            "Are you sure?",
+            "Don't be a meanie, are you sure?",
+            "Look at this doggie, do you want to make him sad?",
+            "OMG YES YAYYYYY"
+          ];
+          let noClickCount = 0;
+          
+          function handleNoClick() {
+            const noBtn = document.getElementById('noBtn');
+            
+            // If we haven't reached the final message yet...
+            if (noClickCount < noMessages.length - 1) {
+              noBtn.textContent = noMessages[noClickCount];
+              noClickCount++;
+            } else {
+              // On this click, the message becomes "Yes"
+              noBtn.textContent = noMessages[noClickCount];
+              noBtn.style.backgroundColor = '#4CAF50'; // Change to green
+              // After a short delay, trigger the same action as clicking the Yes button.
+              setTimeout(showSurprise, 1000);
+            }
+          }
+          
+          function showSurprise() {
+            // Hide the buttons container
+            document.getElementById('buttons').classList.add('hidden');
+            
+            // Display the surprise content
+            const surprise = document.getElementById('surprise');
+            surprise.classList.remove('hidden');
+            
+            // Optional: Add confetti effect
+            for (let i = 0; i < 50; i++) {
+              const confetti = document.createElement('div');
+              confetti.style.position = 'absolute';
+              confetti.style.width = '10px';
+              confetti.style.height = '10px';
+              confetti.style.backgroundColor = `hsl(${Math.random() * 360}deg, 100%, 50%)`;
+              confetti.style.left = Math.random() * 100 + 'vw';
+              confetti.style.top = '-10px';
+              confetti.style.borderRadius = '50%';
+              confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear`;
+              document.body.appendChild(confetti);
+            }
+          }
+          
+          // Add CSS for the confetti animation
+          const style = document.createElement('style');
+          style.textContent = `
+            @keyframes fall {
+              to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+              }
+            }
+          `;
+          document.head.appendChild(style);
+        </script>
+      </div>
     </div>
+  </div>
 </body>
-</html> 
+</html>
